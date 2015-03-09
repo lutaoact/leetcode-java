@@ -3,6 +3,27 @@ package com.lutaoact;
 import java.util.HashMap;
 
 public class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int maxLength = 0;
+        String[] strings = s.split("");
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        for (int i = 0; i < strings.length; i++) {
+            if (map.containsKey(strings[i])) {
+                if (map.size() > maxLength) {
+                    maxLength = map.size();
+                }
+                i = map.get(strings[i]); //from next value
+                map.clear();
+            } else {
+                map.put(strings[i], i);
+            }
+        }
+        if (map.size() > maxLength) {
+            maxLength = map.size();
+        }
+        return maxLength;
+    }
+
     public int[] twoSum(int[] numbers, int target) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         int[] indexes = new int[2];

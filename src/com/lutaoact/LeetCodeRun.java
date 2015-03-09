@@ -11,6 +11,20 @@ public class LeetCodeRun {
 //      System.out.println(Arrays.toString(solution.twoSum(a, 8)));
 
         /*
+         * TEST lengthOfLongestSubstring
+         */
+        String s = "bbbbb";
+        System.out.println(solution.lengthOfLongestSubstring(s));
+        s = "abcdefgh";
+        System.out.println(solution.lengthOfLongestSubstring(s));
+        s = "abbcaadbcbb";
+        System.out.println(solution.lengthOfLongestSubstring(s));
+
+        /*
+         * END lengthOfLongestSubstring
+         */
+
+        /*
            addTwoNumbers
         */
 //        ListNode node1 = new ListNode(5);
