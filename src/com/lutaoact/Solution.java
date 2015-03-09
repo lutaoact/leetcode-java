@@ -5,24 +5,50 @@ import java.util.HashMap;
 public class Solution {
     public int lengthOfLongestSubstring(String s) {
         int maxLength = 0;
-        String[] strings = s.split("");
-        HashMap<String, Integer> map = new HashMap<String, Integer>();
-        for (int i = 0; i < strings.length; i++) {
-            if (map.containsKey(strings[i])) {
-                if (map.size() > maxLength) {
-                    maxLength = map.size();
+        int start = 0;
+        boolean[] flags = new boolean[256];
+        char[] chars = s.toCharArray();
+
+        for (int i = 0; i < chars.length; i++) {
+            char current = chars[i];
+            if (flags[current]) {
+                maxLength = Math.max(i - start, maxLength);
+                for (int k = start; k < i; k++) {
+                    if (chars[k] == current) {
+                        start = k + 1;
+                        break;
+                    }
+                    flags[chars[k]] = false;
                 }
-                i = map.get(strings[i]); //from next value
-                map.clear();
             } else {
-                map.put(strings[i], i);
+                flags[current] = true;
             }
         }
-        if (map.size() > maxLength) {
-            maxLength = map.size();
-        }
+
+        maxLength = Math.max(maxLength, chars.length - start);
         return maxLength;
     }
+
+//    public int lengthOfLongestSubstring(String s) {
+//        int maxLength = 0;
+//        String[] strings = s.split("");
+//        HashMap<String, Integer> map = new HashMap<String, Integer>();
+//        for (int i = 0; i < strings.length; i++) {
+//            if (map.containsKey(strings[i])) {
+//                if (map.size() > maxLength) {
+//                    maxLength = map.size();
+//                }
+//                i = map.get(strings[i]); //from next value
+//                map.clear();
+//            } else {
+//                map.put(strings[i], i);
+//            }
+//        }
+//        if (map.size() > maxLength) {
+//            maxLength = map.size();
+//        }
+//        return maxLength;
+//    }
 
     public int[] twoSum(int[] numbers, int target) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();

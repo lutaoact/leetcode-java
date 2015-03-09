@@ -13,11 +13,12 @@ public class LeetCodeRun {
         /*
          * TEST lengthOfLongestSubstring
          */
-        String s = "bbbbb";
+        String s;
+        s = "bbbbb";
         System.out.println(solution.lengthOfLongestSubstring(s));
         s = "abcdefgh";
         System.out.println(solution.lengthOfLongestSubstring(s));
-        s = "abbcaadbcbb";
+        s = "pwwkew";
         System.out.println(solution.lengthOfLongestSubstring(s));
 
         /*
