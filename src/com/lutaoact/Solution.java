@@ -24,7 +24,7 @@ public class Solution {
         int beginIndex = 0;
         int endIndex = 0;
         for (int i = 0; i < length; i++) {
-            for (int j = 0; j < length; j++) {
+            for (int j = i; j < length; j++) {
                 if (flags[i][j] && j - i + 1 > maxLength) {
                     maxLength = j - i + 1;
                     beginIndex = i;
