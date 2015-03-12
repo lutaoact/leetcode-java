@@ -4,31 +4,35 @@ import java.util.HashMap;
 
 public class Solution {
     public String longestPalindrome(String s) {
+        int length = s.length();
+        if (length == 0) return "";
+
         char[] chars = s.toCharArray();
-        int length = chars.length;
-        StringBuilder sb = new StringBuilder();
-        OUTER:
+        boolean[][] flags = new boolean[length][length];
         for (int i = 0; i < length; i++) {
-            for (int j = length - 1; j > i; j--) {
-                boolean isOK = true;
-                LOOP:
+            for (int j = length - 1; j >= i; j--) {
+                flags[i][j] = true;
                 for (int m = i, n = j; m <= n; m++, n--) {
                     if (chars[m] != chars[n]) {
-                        isOK = false;
-                        break LOOP;
+                        flags[i][j] = false;
+                        break;
                     }
-                }
-                if (isOK) {
-                    System.out.println(i);
-                    System.out.println(j);
-                    for (int k = i; k <= j; k++) {
-                        sb.append(chars[k]);
-                    }
-                    break OUTER;
                 }
             }
         }
-        return sb.toString();
+        int maxLength = 0;
+        int beginIndex = 0;
+        int endIndex = 0;
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length; j++) {
+                if (flags[i][j] && j - i + 1 > maxLength) {
+                    maxLength = j - i + 1;
+                    beginIndex = i;
+                    endIndex = j + 1;
+                }
+            }
+        }
+        return s.substring(beginIndex, endIndex);
     }
 
     public int lengthOfLongestSubstring(String s) {

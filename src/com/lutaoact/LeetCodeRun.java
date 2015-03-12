@@ -17,6 +17,12 @@ public class LeetCodeRun {
         s = "abbbbbc";
         System.out.println(solution.longestPalindrome(s));
 
+        s = "";
+        System.out.println(solution.longestPalindrome(s));
+
+        s = "c";
+        System.out.println(solution.longestPalindrome(s));
+
         s = "babcbabcbaccba";//abcbabcba
         System.out.println(solution.longestPalindrome(s));
 
