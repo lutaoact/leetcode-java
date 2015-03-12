@@ -11,15 +11,27 @@ public class LeetCodeRun {
 //      System.out.println(Arrays.toString(solution.twoSum(a, 8)));
 
         /*
-         * TEST lengthOfLongestSubstring
+         * TEST longestPalindrome
          */
         String s;
-        s = "bbbbb";
-        System.out.println(solution.lengthOfLongestSubstring(s));
-        s = "abcdefgh";
-        System.out.println(solution.lengthOfLongestSubstring(s));
-        s = "pwwkew";
-        System.out.println(solution.lengthOfLongestSubstring(s));
+        s = "abbbbbc";
+        System.out.println(solution.longestPalindrome(s));
+
+        s = "babcbabcbaccba";//abcbabcba
+        System.out.println(solution.longestPalindrome(s));
+
+        s = "abcbabcbaccba";//abcbabcba
+        System.out.println(solution.longestPalindrome(s));
+        /*
+         * TEST lengthOfLongestSubstring
+         */
+//        String s;
+//        s = "bbbbb";
+//        System.out.println(solution.lengthOfLongestSubstring(s));
+//        s = "abcdefgh";
+//        System.out.println(solution.lengthOfLongestSubstring(s));
+//        s = "pwwkew";
+//        System.out.println(solution.lengthOfLongestSubstring(s));
 
         /*
          * END lengthOfLongestSubstring

@@ -3,6 +3,34 @@ package com.lutaoact;
 import java.util.HashMap;
 
 public class Solution {
+    public String longestPalindrome(String s) {
+        char[] chars = s.toCharArray();
+        int length = chars.length;
+        StringBuilder sb = new StringBuilder();
+        OUTER:
+        for (int i = 0; i < length; i++) {
+            for (int j = length - 1; j > i; j--) {
+                boolean isOK = true;
+                LOOP:
+                for (int m = i, n = j; m <= n; m++, n--) {
+                    if (chars[m] != chars[n]) {
+                        isOK = false;
+                        break LOOP;
+                    }
+                }
+                if (isOK) {
+                    System.out.println(i);
+                    System.out.println(j);
+                    for (int k = i; k <= j; k++) {
+                        sb.append(chars[k]);
+                    }
+                    break OUTER;
+                }
+            }
+        }
+        return sb.toString();
+    }
+
     public int lengthOfLongestSubstring(String s) {
         int maxLength = 0;
         int start = 0;
