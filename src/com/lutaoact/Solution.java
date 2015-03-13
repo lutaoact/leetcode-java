@@ -1,39 +1,90 @@
 package com.lutaoact;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Solution {
     public String longestPalindrome(String s) {
-        int length = s.length();
-        if (length == 0) return "";
+        if (s.length() == 0) return "";
+        if (s.length() == 1) return s;
 
-        char[] chars = s.toCharArray();
-        boolean[][] flags = new boolean[length][length];
-        for (int i = 0; i < length; i++) {
-            for (int j = length - 1; j >= i; j--) {
-                flags[i][j] = true;
-                for (int m = i, n = j; m <= n; m++, n--) {
-                    if (chars[m] != chars[n]) {
-                        flags[i][j] = false;
-                        break;
-                    }
+        String ss = embedSharpToString(s);
+        System.out.println(ss);
+        int[] symmetricalLengths = new int[ss.length()];
+        symmetricalLengths[0] = 0;
+        symmetricalLengths[1] = 1;
+        for (int i = 2; i < ss.length(); i++) {
+            symmetricalLengths[i] = Math.min(i, ss.length() - i - 1);
+            for (int j = 1; j < ss.length() - i && j <= i; j++) {
+                if (ss.charAt(i - j) != ss.charAt(i + j)) {
+                    symmetricalLengths[i] = j - 1;
+                    break;
                 }
             }
         }
-        int maxLength = 0;
-        int beginIndex = 0;
-        int endIndex = 0;
-        for (int i = 0; i < length; i++) {
-            for (int j = i; j < length; j++) {
-                if (flags[i][j] && j - i + 1 > maxLength) {
-                    maxLength = j - i + 1;
-                    beginIndex = i;
-                    endIndex = j + 1;
-                }
+        System.out.println(Arrays.toString(symmetricalLengths));
+
+        int maxLength = 1;
+        int index = 1;
+        for (int i = 2; i < ss.length(); i++) {
+            if (symmetricalLengths[i] > maxLength) {
+                maxLength = symmetricalLengths[i];
+                index = i;
             }
         }
-        return s.substring(beginIndex, endIndex);
+        String middleResult = ss.substring(index - maxLength, index + maxLength + 1);
+        StringBuilder result = new StringBuilder();
+        int i = 1;
+        while (i < middleResult.length()) {
+            result.append(middleResult.substring(i, i + 1));
+            i += 2;
+        }
+        
+        return result.toString();
     }
+    
+    
+    
+    public String embedSharpToString(String s) {
+        StringBuilder sb = new StringBuilder("#");
+        for (int i = 0; i < s.length(); i++) {
+            sb.append(s.substring(i, i + 1));
+            sb.append("#");
+        }
+        return sb.toString();
+    }
+
+//    public String longestPalindrome(String s) {
+//        int length = s.length();
+//        if (length == 0) return "";
+//
+//        char[] chars = s.toCharArray();
+//        boolean[][] flags = new boolean[length][length];
+//        for (int i = 0; i < length; i++) {
+//            for (int j = length - 1; j >= i; j--) {
+//                flags[i][j] = true;
+//                for (int m = i, n = j; m <= n; m++, n--) {
+//                    if (chars[m] != chars[n]) {
+//                        flags[i][j] = false;
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//        int maxLength = 0;
+//        int beginIndex = 0;
+//        int endIndex = 0;
+//        for (int i = 0; i < length; i++) {
+//            for (int j = i; j < length; j++) {
+//                if (flags[i][j] && j - i + 1 > maxLength) {
+//                    maxLength = j - i + 1;
+//                    beginIndex = i;
+//                    endIndex = j + 1;
+//                }
+//            }
+//        }
+//        return s.substring(beginIndex, endIndex);
+//    }
 
     public int lengthOfLongestSubstring(String s) {
         int maxLength = 0;

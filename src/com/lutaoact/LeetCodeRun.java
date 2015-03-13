@@ -14,10 +14,10 @@ public class LeetCodeRun {
          * TEST longestPalindrome
          */
         String s;
-        s = "abbbbbc";
-        System.out.println(solution.longestPalindrome(s));
+//        s = "abcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcbaabcdedcba";
+//        System.out.println(solution.longestPalindrome(s));
 
-        s = "";
+        s = "aba";
         System.out.println(solution.longestPalindrome(s));
 
         s = "c";
