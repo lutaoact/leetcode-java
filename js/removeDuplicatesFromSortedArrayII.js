@@ -4,9 +4,10 @@ function removeDuplicates(nums) {
   var count = 1, index = 0;
   for (var i = 1; i < length; i++) {
     if (nums[index] === nums[i] && ++count <= 2) {
-      nums[++index] = nums[i++];
+      nums[++index] = nums[i];
+      continue;
     }
-    if (nums[index] !== nums[i] && i < length) {
+    if (nums[index] !== nums[i]) {
       nums[++index] = nums[i];
       count = 1;
     }
